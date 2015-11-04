@@ -1,0 +1,33 @@
+{
+    "country": [
+        {
+            "country": "Paraguay",
+            "country_iso_code": "PY"
+        }
+        ,
+        {
+            "country": "Ukraine",
+            "country_iso_code": "UA"
+        },
+        {
+            "country": "Poland",
+            "country_iso_code": "PL"
+        }
+    ],
+    "city": [
+        {
+            "city_name": "Odessa"
+        }
+        ,
+        {
+            "city_name": "Kyiv"
+        },
+        {
+            "city_name": "Warszawa"
+        },
+        {
+            "city_name": "Krakow"
+        }
+    ]
+
+}
