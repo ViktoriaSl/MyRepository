@@ -10,7 +10,7 @@ import java.util.Set;
  * Created by vika on 25.10.15.
  */
 
-public class CountryVO  implements Serializable{
+public class CountryVO implements Serializable {
 
     @Null
     private Long id;
@@ -19,7 +19,7 @@ public class CountryVO  implements Serializable{
     @NotNull
     private String countryISOCode;
 
-    private Set<CityVO> cityVOSet;
+    private Set<CityVO> cities;
 
 
     public Long getId() {
@@ -29,6 +29,7 @@ public class CountryVO  implements Serializable{
     public void setId(Long id) {
         this.id = id;
     }
+
     public String getCountryName() {
         return countryName;
     }
@@ -46,11 +47,21 @@ public class CountryVO  implements Serializable{
     }
 
     public Set<CityVO> getCities() {
-        return cityVOSet;
+        return cities;
     }
 
-    public void setCityVOSet(Set<CityVO> cityVOSet) {
-        this.cityVOSet = cityVOSet;
+    public void setCities(Set<CityVO> cities) {
+        this.cities = cities;
+    }
+
+    @Override
+    public String toString() {
+        return "CountryVO{" +
+                "id=" + id +
+                ", countryName='" + countryName + '\'' +
+                ", countryISOCode='" + countryISOCode + '\'' +
+                ", cities=" + cities +
+                '}';
     }
 
     public CountryVO() {
@@ -61,9 +72,11 @@ public class CountryVO  implements Serializable{
         this.countryISOCode = countryISOCode;
     }
 
-    public CountryVO(String countryName, String countryISOCode, Set<CityVO> cityVOSet) {
+    public CountryVO(String countryName, String countryISOCode, Set<CityVO> cities) {
         this.countryName = countryName;
         this.countryISOCode = countryISOCode;
-        this.cityVOSet = cityVOSet;
+        this.cities = cities;
     }
+
+
 }

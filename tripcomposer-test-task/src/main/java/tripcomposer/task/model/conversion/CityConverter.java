@@ -1,7 +1,7 @@
 package tripcomposer.task.model.conversion;
 
-import tripcomposer.task.model.CityVO;
 import tripcomposer.task.entity.impl.CityEntity;
+import tripcomposer.task.model.CityVO;
 
 import java.util.Collection;
 import java.util.HashSet;
@@ -21,7 +21,7 @@ public class CityConverter {
         if (cityVO.getCityName() != null) {
             cityEntity.setCityName(cityVO.getCityName());
         }
-           return cityEntity;
+        return cityEntity;
     }
 
     public static Set<CityEntity> convertVOsToEntities(Collection<CityVO> cityVOs) {
@@ -33,5 +33,4 @@ public class CityConverter {
     }
 
 
-
-  }
+}

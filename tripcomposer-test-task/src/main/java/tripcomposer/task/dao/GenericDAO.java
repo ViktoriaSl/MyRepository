@@ -12,10 +12,10 @@ import javax.validation.constraints.NotNull;
 /**
  * Created by vika on 25.10.15.
  */
-public class GenericDAO <ENTITY extends GenericEntity> {
+public class GenericDAO<ENTITY extends GenericEntity> {
     Class<ENTITY> entityClass;
 
-   @PersistenceContext
+    @PersistenceContext
     private EntityManager em;
 
     public GenericDAO() {

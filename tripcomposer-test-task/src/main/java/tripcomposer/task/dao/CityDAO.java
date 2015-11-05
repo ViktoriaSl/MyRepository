@@ -13,4 +13,4 @@ public class CityDAO extends GenericDAO<CityEntity> {
     public CityDAO() {
         setEntityClass(CityEntity.class);
     }
- }
+}

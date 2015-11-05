@@ -1,8 +1,8 @@
 {
-  "country": [
-    {
-      "country": "Paraguay",
-      "country_iso_code": "PY"
-    }
-  ]
+    "country": [
+        {
+            "country": "Paraguay",
+            "country_iso_code": "PY"
+        }
+    ]
 }

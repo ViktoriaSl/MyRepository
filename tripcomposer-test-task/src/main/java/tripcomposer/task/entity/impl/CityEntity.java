@@ -11,14 +11,14 @@ import java.io.Serializable;
  * Created by vika on 18.03.15.
  */
 @Entity
-@Table(name = "city", schema = "public", catalog = "mydatabase")
+@Table(name = "city", schema = "public")
 public class CityEntity implements Serializable, GenericEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotNull(message="City name should be defined")
+    @NotNull(message = "City name should be defined")
     @Basic
     @Column(name = "city_name", nullable = true, insertable = true, updatable = true)
     private String cityName;
@@ -35,7 +35,7 @@ public class CityEntity implements Serializable, GenericEntity {
         this.id = id;
     }
 
-   public String getCityName() {
+    public String getCityName() {
         return cityName;
     }
 
@@ -70,11 +70,13 @@ public class CityEntity implements Serializable, GenericEntity {
         result = 31 * result + (cityName != null ? cityName.hashCode() : 0);
         return result;
     }
+
     public CityEntity() {
     }
+
     public CityEntity(String cityName) {
         this.cityName = cityName;
-       }
+    }
 
     public CityEntity(String cityName, CountryEntity countries) {
         this.cityName = cityName;

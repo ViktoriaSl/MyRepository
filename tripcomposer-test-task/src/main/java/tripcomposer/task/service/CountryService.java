@@ -1,4 +1,4 @@
-package tripcomposer.task.dto;
+package tripcomposer.task.service;
 
 import com.sun.istack.internal.NotNull;
 import tripcomposer.task.model.CountryVO;
@@ -11,5 +11,5 @@ import java.util.Set;
  */
 public interface CountryService {
 
-   Set<CountryVO> saveCountries(@NotNull @Valid Set<CountryVO> countryVOs);
+    Set<CountryVO> saveCountries(@NotNull @Valid Set<CountryVO> countryVOs);
 }

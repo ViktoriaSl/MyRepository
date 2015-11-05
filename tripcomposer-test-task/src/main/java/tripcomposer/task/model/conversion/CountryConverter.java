@@ -23,7 +23,7 @@ public class CountryConverter {
         if (countryVO.getCountryISOCode() != null) {
             countryEntityForConversion.setCountryISOCode(countryVO.getCountryISOCode());
         }
-        if(countryVO.getCities()!=null) {
+        if (countryVO.getCities() != null) {
             countryEntityForConversion.setCities(CityConverter.convertVOsToEntities(countryVO.getCities()));
         }
         return countryEntityForConversion;
@@ -37,4 +37,4 @@ public class CountryConverter {
                 .collect(Collectors.toList()));
         return countryEntities;
     }
-  }
+}

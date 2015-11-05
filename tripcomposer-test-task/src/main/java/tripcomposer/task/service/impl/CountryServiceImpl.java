@@ -1,15 +1,15 @@
-package tripcomposer.task.dto.impl;
+package tripcomposer.task.service.impl;
 
 import com.sun.istack.internal.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import tripcomposer.task.dao.CityDAO;
 import tripcomposer.task.dao.CountryDAO;
-import tripcomposer.task.dto.CountryService;
 import tripcomposer.task.entity.impl.CityEntity;
 import tripcomposer.task.entity.impl.CountryEntity;
 import tripcomposer.task.model.CountryVO;
 import tripcomposer.task.model.conversion.CountryConverter;
+import tripcomposer.task.service.CountryService;
 
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
@@ -32,29 +32,28 @@ public class CountryServiceImpl implements CountryService {
     @EJB
     CityDAO cityDAO;
 
-  @Override
-  public Set<CountryVO> saveCountries(@NotNull @Valid Set<CountryVO> countryVOs) {
+    @Override
+    public Set<CountryVO> saveCountries(@NotNull @Valid Set<CountryVO> countryVOs) {
         Set<CountryEntity> countryEntitiesResponse = convertVOsToEntities(countryVOs);
-        for(CountryEntity currentCountryForSaving :countryEntitiesResponse){
-           currentCountryForSaving = countryDAO.save(currentCountryForSaving);
-            try{
-               saveCitiesToCountry(currentCountryForSaving.getCities(), currentCountryForSaving);
-             }catch (NullPointerException e){
-               log.warn("Country "+ currentCountryForSaving.getCountryName() +" don't have cities");
-           }
-          }
+        for (CountryEntity currentCountryForSaving : countryEntitiesResponse) {
+            currentCountryForSaving = countryDAO.save(currentCountryForSaving);
+            try {
+                saveCitiesToCountry(currentCountryForSaving.getCities(), currentCountryForSaving);
+            } catch (NullPointerException e) {
+                log.warn("Country " + currentCountryForSaving.getCountryName() + " don't have cities");
+            }
+        }
         return countryVOs;
-               }
+    }
 
 
-
-    private void saveCitiesToCountry(Set<CityEntity> cityForSaving, CountryEntity currentCountry){
+    private void saveCitiesToCountry(Set<CityEntity> cityForSaving, CountryEntity currentCountry) {
         for (CityEntity cityEntity : cityForSaving) {
             cityEntity.setCountry(currentCountry);
             cityDAO.save(cityEntity);
         }
-   }
     }
+}
 
 
 

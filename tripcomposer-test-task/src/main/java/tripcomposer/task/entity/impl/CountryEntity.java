@@ -12,19 +12,19 @@ import java.util.Set;
  * Created by vika on 24.10.15.
  */
 @Entity
-@Table(name = "country", schema = "public", catalog = "mydatabase")
-public class CountryEntity  implements Serializable, GenericEntity {
+@Table(name = "country", schema = "public")
+public class CountryEntity implements Serializable, GenericEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotNull(message="Country name should be defined")
+    @NotNull(message = "Country name should be defined")
     @Basic
     @Column(name = "country", nullable = true, insertable = true, updatable = true)
     private String countryName;
 
-    @NotNull(message="Country ISO code should be defined")
+    @NotNull(message = "Country ISO code should be defined")
     @Basic
     @Column(name = "country_iso_code", nullable = true, insertable = true, updatable = true)
     private String countryISOCode;
@@ -40,6 +40,7 @@ public class CountryEntity  implements Serializable, GenericEntity {
     public void setId(Long id) {
         this.id = id;
     }
+
     public String getCountryName() {
         return countryName;
     }
@@ -87,7 +88,7 @@ public class CountryEntity  implements Serializable, GenericEntity {
         return result;
     }
 
-    public CountryEntity(Long id,String countryName, String countryISOCode) {
+    public CountryEntity(Long id, String countryName, String countryISOCode) {
         this.id = id;
         this.countryName = countryName;
         this.countryISOCode = countryISOCode;
@@ -98,7 +99,6 @@ public class CountryEntity  implements Serializable, GenericEntity {
         this.countryName = countryName;
         this.countryISOCode = countryISOCode;
     }
-
 
 
     public CountryEntity() {

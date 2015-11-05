@@ -10,6 +10,6 @@ import javax.ejb.Stateless;
 @Stateless(name = "CountryBean")
 public class CountryDAO extends GenericDAO<CountryEntity> {
     public CountryDAO() {
-              setEntityClass(CountryEntity.class);
+        setEntityClass(CountryEntity.class);
     }
 }

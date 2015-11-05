@@ -8,7 +8,7 @@ import java.io.Serializable;
 /**
  * Created by vika on 25.10.15.
  */
-public class CityVO  implements Serializable {
+public class CityVO implements Serializable {
 
     @Null
     private Long id;
@@ -40,6 +40,15 @@ public class CityVO  implements Serializable {
 
     public void setCountry(CountryVO country) {
         this.country = country;
+    }
+
+    @Override
+    public String toString() {
+        return "CityVO{" +
+                "id=" + id +
+                ", cityName='" + cityName + '\'' +
+                ", country=" + country +
+                '}';
     }
 
     public CityVO() {
